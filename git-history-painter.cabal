@@ -1,0 +1,71 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           git-history-painter
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/ckw/git-history-painter#readme>
+homepage:       https://github.com/ckw/git-history-painter#readme
+bug-reports:    https://github.com/ckw/git-history-painter/issues
+author:         Connor Williams
+maintainer:     Connor Williams
+copyright:      2023 Connor Williams
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/ckw/git-history-painter
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_git_history_painter
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable git-history-painter
+  main-is: Main.hs
+  other-modules:
+      Paths_git_history_painter
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , brick
+    , containers
+    , git-history-painter
+    , microlens
+    , microlens-mtl
+    , microlens-th
+    , random
+    , split
+    , text
+    , time
+    , vty
+  default-language: Haskell2010
+
+test-suite git-history-painter-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_git_history_painter
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , git-contrib
+  default-language: Haskell2010
